@@ -3,6 +3,7 @@ var lockTimeCalculator = require('../index')
 var calcLockSchedule = lockTimeCalculator.calcLockSchedule
 var isInSeason = lockTimeCalculator.isInSeason
 var createDaySchedule = lockTimeCalculator.createDaySchedule
+var createWeekDaySchedule = lockTimeCalculator.createWeekDaySchedule
 
 describe("calcSchedule - out of season", function(){
     it('last day before the season', function() {
@@ -46,6 +47,70 @@ describe("helper functions", function() {
         })    
     }),
 
+    describe("weekdays", function() {
+        it('create hours for sunday', () => {
+            createWeekDaySchedule("2018-06-03").should.eql([
+                '2018-06-03T05:00:00.000Z', 
+                '2018-06-03T06:00:00.000Z', 
+                '2018-06-03T07:00:00.000Z', 
+                '2018-06-03T08:00:00.000Z', 
+                '2018-06-03T09:00:00.000Z', 
+                '2018-06-03T11:00:00.000Z', 
+                '2018-06-03T12:00:00.000Z', 
+                '2018-06-03T13:00:00.000Z', 
+                '2018-06-03T14:00:00.000Z', 
+                '2018-06-03T15:00:00.000Z', 
+                '2018-06-03T16:00:00.000Z', 
+                '2018-06-03T17:00:00.000Z', 
+                '2018-06-03T18:00:00.000Z'
+            ])
+        }),
+        it('create hours for monday', () => {
+            createWeekDaySchedule("2018-06-04").should.eql([
+                '2018-06-04T06:00:00.000Z', 
+                '2018-06-04T08:00:00.000Z', 
+                '2018-06-04T10:00:00.000Z', 
+                '2018-06-04T12:00:00.000Z', 
+                '2018-06-04T14:00:00.000Z', 
+                '2018-06-04T16:00:00.000Z', 
+                '2018-06-04T18:00:00.000Z'
+            ])
+        }),
+        it('create hours for Friday', () => {
+            createWeekDaySchedule("2018-06-08").should.eql([
+                '2018-06-08T06:00:00.000Z', 
+                '2018-06-08T07:00:00.000Z', 
+                '2018-06-08T08:00:00.000Z', 
+                '2018-06-08T09:00:00.000Z', 
+                '2018-06-08T10:00:00.000Z', 
+                '2018-06-08T11:00:00.000Z', 
+                '2018-06-08T12:00:00.000Z', 
+                '2018-06-08T13:00:00.000Z', 
+                '2018-06-08T14:00:00.000Z', 
+                '2018-06-08T15:00:00.000Z', 
+                '2018-06-08T16:00:00.000Z', 
+                '2018-06-08T17:00:00.000Z', 
+                '2018-06-08T18:00:00.000Z'
+            ])
+        }),
+        it('create hours for Friday', () => {
+            createWeekDaySchedule("2018-06-09").should.eql([
+                '2018-06-09T06:00:00.000Z', 
+                '2018-06-09T07:00:00.000Z', 
+                '2018-06-09T08:00:00.000Z', 
+                '2018-06-09T09:00:00.000Z', 
+                '2018-06-09T11:00:00.000Z', 
+                '2018-06-09T12:00:00.000Z', 
+                '2018-06-09T13:00:00.000Z', 
+                '2018-06-09T14:00:00.000Z', 
+                '2018-06-09T15:00:00.000Z', 
+                '2018-06-09T16:00:00.000Z', 
+                '2018-06-09T17:00:00.000Z', 
+                '2018-06-09T18:00:00.000Z'
+            ])
+        })
+    }),
+    
     describe("createDaySchedule", function() {
         it('create all hours', () => {
             createDaySchedule('2018-06-01', 8, 12, false, false ).should.eql([
