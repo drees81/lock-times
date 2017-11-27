@@ -1,0 +1,23 @@
+{
+  "name": "lock-times",
+  "version": "1.0.0",
+  "description": "Lock Time Calculator for Harlesiel (DE)",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drees81/lock-times.git"
+  },
+  "author": "Jan Drees (jan@drees81.de)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drees81/lock-times/issues"
+  },
+  "homepage": "https://github.com/drees81/lock-times#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1"
+  }
+}
