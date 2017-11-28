@@ -4,7 +4,7 @@
   "description": "Lock Time Calculator for Harlesiel (DE)",
   "main": "index.js",
   "scripts": {
-    "test": "XUNIT_FILE=reports/TEST-xunit.xml nyc mocha --reporter xunit-file"
+    "test": "XUNIT_FILE=reports/TEST-xunit.xml nyc --reporter lcovonly --report-dir ./reports mocha --reporter xunit-file"
   },
   "repository": {
     "type": "git",
