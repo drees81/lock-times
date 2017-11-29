@@ -40,8 +40,8 @@ module.exports = {
 
         for (let hour=startHour; hour<=endHour; hour++) {
             if ( (isEven(hour) || !onlyEvenHours) && (hour!=12 || !skipNoon)) {
-                date.setHours(hour)
-                result.push(date.toJSON())
+                date.setHours(hour);
+                result.push(date.toJSON());
             }
         }
 
